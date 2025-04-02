@@ -5,9 +5,7 @@ mod projects;
 mod run;
 
 pub use run::setup as run_setup;
-pub use run::run_kcomebacks_command;
-pub use run::run_projects_command;
-pub use run::run_likedsongs_command;
+pub use run::run_sync_all_command;
 
 pub use builtin::get_builtin_routes as get_v1_builtin_routes;
 pub use debug::get_debug_routes as get_v1_debug_routes;

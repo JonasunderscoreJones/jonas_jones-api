@@ -26,6 +26,7 @@ pub fn get_run_routes() -> impl warp::Filter<Extract = impl warp::Reply, Error =
         .or(warp::path("projects").and_then(update_projects))
         .or(warp::path("makediscography").map(||"Not implemented yet"))
         .or(warp::path("synclikedsongs").and_then(sync_liked_songs))
+        .or(warp::path("sync_all").and_then(sync_all))
         )
 }
 
@@ -77,6 +78,23 @@ async fn sync_liked_songs() -> Result<impl warp::Reply, warp::Rejection> {
     }
 
     Ok(warp::reply::json(&json!({"status": "updating..."})))
+
+}
+
+async fn sync_all() -> Result<impl warp::Reply, warp::Rejection> {
+    // check if the local repository exists, if not, clone it
+    if !fs::metadata("./resources/turbo_octo_potato").is_ok() {
+        setup().unwrap();
+    };
+
+    if let Err(err) = run_sync_all_command() {
+        // Handle the error here
+        eprintln!("Error: {}", err);
+        // Return an appropriate response or error
+        return Err(warp::reject::custom(InternalServerError));
+    }
+
+    Ok(warp::reply::json(&json!({"status": "syncing..."})))
 
 }
 
@@ -246,6 +264,21 @@ pub fn run_likedsongs_command() -> Result<(), std::io::Error> {
     //     }
     // });
     Logger::info("Syncing liked songs...");
+
+    Ok(())
+}
+
+pub fn run_sync_all_command() -> Result<(), std::io::Error> {
+    task::spawn_blocking(move || {
+        let mut child = Command::new("python3")
+            .arg("script_interval_runner.py")
+            .current_dir("resources/turbo_octo_potato")
+            .stdout(Stdio::piped())
+            .spawn()
+            .expect("failed to execute child");
+        child.wait().unwrap();
+    });
+    Logger::info("Running all Sync Scripts...");
 
     Ok(())
 }

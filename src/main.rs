@@ -1,6 +1,6 @@
 use dotenv::dotenv;
 use tokio::time::{sleep, Duration};
-use v1::{run_kcomebacks_command, run_likedsongs_command, run_projects_command};
+use v1::{run_sync_all_command};
 use std::fs;
 
 pub mod v1;
@@ -19,9 +19,7 @@ async fn periodic_script_runner() {
     loop {
         Logger::info("Running periodic scripts...");
         // Run all Functions
-        let _ = run_kcomebacks_command();
-        let _ = run_projects_command();
-        let _ = run_likedsongs_command();
+        let _ = run_sync_all_command();
 
         // Sleep for 6 hours
         sleep(Duration::from_secs(6 * 60 * 60)).await;
