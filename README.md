@@ -26,3 +26,5 @@ python main.py runserver
 - session backend, auth token system
 - implementation for dashboard front-end with analytics/config
 - complete minecraft mod implementation
+
+More updated Roadmap will follow (currently exists in my Notes)
