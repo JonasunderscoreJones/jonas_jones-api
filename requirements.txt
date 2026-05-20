@@ -1,9 +1,1 @@
-requests
-datetime
-python-dotenv
-spotipy
-praw
-spotipy
-pylast
-typing
-markdown
+django
