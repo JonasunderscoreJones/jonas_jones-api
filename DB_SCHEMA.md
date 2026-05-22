@@ -1,0 +1,37 @@
+# Planned
+1. Working/System Tables
+    - INT_PIP_PIPELINES: Pipeline Definitions [IPP_ID: VARCHAR, IPP_DISPLAY_NAME: VARCHAR, IPP_CREATE_DATE: DATE]
+    - INT_PIP_RUNS: Pipeline Runs with runtimes and additional information if possible [IPR_ID: VARCHAR, IPR_IPP_ID: VARCHAR, IPR_START_DATE: DATE, IPR_END_DATE: DATE, IPR_DATA_COUNT: INTEGER]
+2. Data Tables
+    - DTA_MUS_ARTISTS
+    - DTA_MUS_ALBUMS
+    - DTA_MUS_TRACKS
+    - DTA_MUS_PLAYLISTS
+    - DTA_MUS_PLAYLISTS_TRACKS
+    - DTA_KCOMEBACKS_RAW
+    - DTA_KCOMEBACKS_RAW_HIST
+    - DTA_JLY_[all media, categorized into their own tables]
+    - DTA_JLY_[all media, categorized into their own tables]_HIST
+    - DTA_LFM_SCROBBLES
+    - DTA_LFM_SCROBBLES_HIST
+    - DTA_LFM_LIVE_SCROBBLES
+    - DTA_DEV_DEVICES: all devices I have data from
+    - DTA_AND_[all android data tables]: android data like usage stats, etc. referenced with device table
+    - DTA_AND_[all android data tables]_HIST
+    - DTA_RSS_FEEDS
+    - DTA_RSS_FEEDS_POSTS
+    - DTA_BUD_EXPENSES
+    - DTA_BUD_EXP_HETZNER
+    - DTA_BUD_EXP_AMAZON
+    - DTA_PAP_DOCUMENTS
+    - DTA_PAP_DOCUMENTS_HIST
+    - DTA_ECO_REQUESTS
+    - DTA_BRL_BEREALS
+    - DTA_IMC_MEDIA: Immich Media
+    - DTA_IMC_MEDIA_HIST
+    - DTA_CTC_CONTACTS
+    - DTA_CTC_CONTACTS_HIST
+    - DTA_CMD_COMMANDS: referened with device table
+    - DTA_ANK_ANKI_DECKS: all decks even if empty and just being used as folders
+    - DTA_ANK_ANKI_CARDS
+    - DTA_GPS_BIKING
