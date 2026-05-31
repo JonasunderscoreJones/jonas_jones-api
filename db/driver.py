@@ -6,7 +6,7 @@ import psycopg2
 from dotenv import load_dotenv
 from psycopg2 import sql
 
-from db.table_builder import TableBuilder, ColumnType, ForeignKey
+from db.db_builders import TableBuilder, ColumnType, ForeignKey
 
 
 class PostgresDriver:
