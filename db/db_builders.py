@@ -85,9 +85,8 @@ class ColumnBuilder:
 
 
 class TableBuilder():
-    columns: dict = {}
     def __init__(self):
-        pass
+        self.columns = {}
 
     def add_column(self, name, column_type: ColumnType = ColumnType.VARCHAR, length: int = 255, not_null: bool = False, unique: bool = False, default_value: str = None, foreign_key: ForeignKey = None):
         self.columns[name] = ColumnBuilder(column_type=column_type).set_length(length).set_not_null(not_null).set_unique(unique).set_default_value(default_value).set_foreign_key(foreign_key).build()
