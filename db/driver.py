@@ -56,7 +56,7 @@ class PostgresDriver:
                 "int_pip_pipelines",
                 TableBuilder()
                 .add_column("ipp_id", column_type=ColumnType.UUID, not_null=True, unique=True)
-                .add_column("ipp_display_name", column_type=ColumnType.VARCHAR, length=255, not_null=True)
+                .add_column("ipp_display_name", column_type=ColumnType.VARCHAR, length=255, not_null=True, unique=True)
                 .add_column("ipp_create_date", column_type=ColumnType.DATE, not_null=True)
                 .build()
             )
