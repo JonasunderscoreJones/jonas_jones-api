@@ -7,4 +7,4 @@ def ping(request):
     })
 
 def version(request):
-    return HttpResponsePermanentRedirect("/api/version")
+    return HttpResponsePermanentRedirect("/version")

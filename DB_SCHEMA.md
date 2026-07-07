@@ -65,3 +65,6 @@
     - DTA_FCH_STREAK_HIST
     - DTA_FCH_TAGS
     - DTA_FCH_TAGS_HIST
+    - int_dns_client: [idc_id: BIGSERIAL PK, ip_address: INET UNIQUE NOT NULL]
+    - int_dns_domain: [idd_id: BIGSERIAL PK, fqdn: VARCHAR(512) UNIQUE NOT NULL]
+    - int_dns_event: [ide_id: BIGSERIAL PK, event_ts: TIMESTAMPTZ, dnsmasq_pid: INTEGER, idc_id: BIGINT FK, idd_id: BIGINT FK, event_type: VARCHAR(20), record_type: VARCHAR(10), result_value: VARCHAR(512), upstream_server: INET, is_cname: BOOLEAN, raw_log_line: TEXT]
