@@ -7,3 +7,6 @@
 .env
 /resources
 /postgres_data
+
+__pycache__/
+.idea/
