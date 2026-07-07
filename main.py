@@ -18,7 +18,7 @@ settings.configure(
 )
 
 urlpatterns = [
-    path("api/", include("api.urls")),
+    path("", include("api.urls")),
 ]
 
 handler400 = custom_400_response
