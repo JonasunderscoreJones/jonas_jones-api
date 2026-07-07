@@ -5,21 +5,26 @@ from django.urls import path, include
 from django.core.management import execute_from_command_line
 from dotenv import load_dotenv
 
+from api.respones.httpcodes import custom_400_response, custom_403_response, custom_404_response, custom_500_response
 from db.driver import PostgresDriver
 
 DB_DRIVER = PostgresDriver()
 
 settings.configure(
-    DEBUG=True,
+    DEBUG=False,
     ROOT_URLCONF=__name__,
     SECRET_KEY="dev",
     ALLOWED_HOSTS=["*"],
-    MIDDLEWARE=[],
 )
 
 urlpatterns = [
     path("api/", include("api.urls")),
 ]
+
+handler400 = custom_400_response
+handler403 = custom_403_response
+handler404 = custom_404_response
+handler500 = custom_500_response
 
 
 if __name__ == "__main__":
